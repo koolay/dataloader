@@ -37,8 +37,7 @@ included_columns=["id", "name", "code", "created_by", "updated_at"]
 ```
 .dlt/secrets.toml
 
-```tolml
-
+```toml
 [sources.sql_table.credentials]
 drivername = "pymysql" # please set me up!
 database = "ddd" # please set me up!
@@ -63,7 +62,6 @@ endpoint_url = "https://<account_id>.r2.cloudflarestorage.com" # copy your endpo
 [destination.filesystem.kwargs]
 use_ssl=true
 auto_mkdir=true
-
 ```
 
 ```bash
