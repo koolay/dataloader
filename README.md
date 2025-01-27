@@ -42,7 +42,7 @@ included_columns=["id", "name", "code", "created_by", "updated_at"]
 uv run main.py
 
 # Display info via streamlit
-uv run dlt pipeline kapp show
+uv run dlt pipeline demo-clients show
 
 ```
 ## Query the data using duckdb
