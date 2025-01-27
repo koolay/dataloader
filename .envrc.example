@@ -1,0 +1,1 @@
+SOURCE_DB_CONN_STRING="mysql+pymysql://root:dev@localhost:3307/demo"
