@@ -8,12 +8,16 @@ dependencies = [
     "cryptography>=44.0.0",
     "dlt[deltalake,filesystem,sql-database]>=1.5.0",
     "duckdb>=1.1.3",
+    "fastapi>=0.115.7",
     "loguru>=0.7.3",
     "numpy>=2.2.1",
+    "pendulum>=3.0.0",
     "pyarrow>=18.1.0",
     "pymysql>=1.1.1",
     "sqlalchemy>=2.0.36",
     "streamlit>=1.41.1",
+    "temporalio>=1.9.0",
+    "uvicorn>=0.34.0",
     "watchdog>=6.0.0",
 ]
 

@@ -66,8 +66,14 @@ auto_mkdir=true
 
 ```bash
 
+# Run temporal server
+temporal server start-dev
+
 # Run DataLoader
 uv run main.py
+
+# Create a task
+hurl ./tests/create_task.hrl
 
 # Display info via streamlit
 uv run dlt pipeline demo-clients show
