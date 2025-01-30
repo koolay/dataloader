@@ -25,15 +25,8 @@ uv sync
 [runtime]
 log_level="WARNING"  # the system log level of dlt
 # use the dlthub_telemetry setting to enable/disable anonymous usage data reporting, see https://dlthub.com/docs/reference/telemetry
-dlthub_telemetry = true
+dlthub_telemetry = false
 
-[transfer_table]
-schema = "demo"
-table="clients"
-primary_key="id"
-incremental="id"
-table_format="delta"
-included_columns=["id", "name", "code", "created_by", "updated_at"]
 ```
 .dlt/secrets.toml
 
