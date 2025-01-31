@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from datetime import timedelta
 from os import getenv
-from typing import List
+from typing import Any, List
 
 import dlt
 import uvicorn
@@ -26,6 +26,24 @@ from temporalio.worker import Worker
 interrupt_event = asyncio.Event()
 weblog = logging.getLogger("web")
 dlt_log = logging.getLogger("dlt")
+
+
+class EndpointFilter(logging.Filter):
+    def __init__(
+        self,
+        path: str,
+        *args: Any,
+        **kwargs: Any,
+    ):
+        super().__init__(*args, **kwargs)
+        self._path = path
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        return record.getMessage().find(self._path) == -1
+
+
+# Filter out /endpoint
+logging.getLogger("uvicorn.access").addFilter(EndpointFilter("/healthz"))
 
 
 class InterceptHandler(logging.Handler):
