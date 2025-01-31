@@ -247,13 +247,14 @@ async def main(loop: asyncio.AbstractEventLoop):
     loop.add_signal_handler(signal.SIGINT, on_signal_received)
 
     temporal_hostport = getenv("TEMPORAL_HOSTPORT", "localhost:7233")
+    temporal_namespace = getenv("TEMPORAL_NAMESPACE", "default")
     wk_options = WorkerOptions(
         max_concurrent_workflow_tasks=int(
             getenv("TEMPORAL_MAX_CONCURRENT_WORKFLOW_TASKS", "4")
         ),
         queue_name=getenv("TEMPORAL_QUEUE_NAME", "table-transfer"),
     )
-    tclient = await Client.connect(temporal_hostport)
+    tclient = await Client.connect(temporal_hostport, namespace=temporal_namespace)
 
     logger.info("Starting worker...")
     loop.create_task(run_worker(tclient, wk_options))
