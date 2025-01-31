@@ -197,6 +197,10 @@ async def run_webserver(
 
     app = FastAPI(lifespan=lifespan)
 
+    @app.get("/healthz")
+    async def health():
+        return "ok"
+
     @app.post("/upsert-tasks")
     async def upsert_task(payload: TableTransferInput = Body(...)):
         await tclient.start_workflow(
