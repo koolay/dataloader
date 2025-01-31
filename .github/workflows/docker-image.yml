@@ -5,7 +5,10 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+permissions:
+  packages: write    # 添加包写入权限
+  contents: read     # 添加内容读取权限
+  
 jobs:
   build:
     runs-on: ubuntu-latest
