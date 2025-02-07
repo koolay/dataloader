@@ -13,4 +13,5 @@ secrets.toml
 .envrc
 .dlt/
 
-
+.aider/
+.aider*
